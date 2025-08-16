@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Old Burguer — Pedidos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Sistema simples de pedidos para restaurante The Old Burguer." />
+</head>
+<body>
+  <header class="site-header">
+    <img src="assets/logo.png" alt="Logo do Restaurante" class="logo" />
+    <h1 class="title">Sistema de Pedidos</h1>
+  </header>
+
+  <main class="container">
+    <section class="menu-section card">
+      <div class="section-head">
+        <h2>Cardápio</h2>
+        <input id="search" class="search" placeholder="Buscar item..." />
+      </div>
+      <ul id="menuList" class="menu-list"></ul>
+    </section>
+
+    <section class="cart-section card">
+      <div class="section-head">
+        <h2>Pedido Atual</h2>
+        <div class="order-number">Próximo Nº: <span id="nextOrderNumber">#0001</span></div>
+      </div>
+      <ul id="cartList" class="cart-list"></ul>
+      <div class="cart-footer">
+        <div class="total">Total: <span id="cartTotal">R$ 0,00</span></div>
+        <div class="cart-actions">
+          <button id="clearCart" class="btn secondary">Limpar</button>
+          <button id="finalizeOrder" class="btn primary">Finalizar Pedido</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dialogo para observação -->
+  <dialog id="obsDialog">
+    <form method="dialog" class="dialog-form">
+      <h3>Observação do item</h3>
+      <p id="obsItemName"></p>
+      <textarea id="obsText" placeholder="Ex.: sem tomate, extra bacon" rows="4"></textarea>
+      <div class="dialog-actions">
+        <button value="cancel" class="btn secondary">Cancelar</button>
+        <button id="obsConfirm" value="ok" class="btn primary">Adicionar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Comanda -->
+  <section id="comandaContainer" class="comanda-wrap hidden">
+    <div class="comanda-tools">
+      <button id="closeComanda" class="btn secondary">Voltar</button>
+      <button id="printComanda" class="btn primary">Imprimir</button>
+    </div>
+
+    <article id="comanda" class="comanda card">
+      <img src="assets/logo.png" alt="Logo" class="comanda-logo" />
+      <h2 class="comanda-title">PEDIDO NÚMERO <span id="comandaNumber">#0001</span></h2>
+
+      <div class="comanda-body">
+        <h3>Itens do Pedido:</h3>
+        <ul id="comandaItens" class="comanda-itens"></ul>
+        <div class="comanda-total">Total = <span id="comandaTotal">R$ 0,00</span></div>
+      </div>
+
+      <img src="assets/pix_qr.png" alt="QR Code PIX" class="pix" />
+    </article>
+  </section>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> The Old Burguer • GitHub Pages ready</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
